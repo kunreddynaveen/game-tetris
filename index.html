@@ -2,10 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cntm-Tetris</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    Tetris Game Coming Up...
+
+    <div id="game-wrapper">
+        <!-- Overlay Screens -->
+        <div id="overlay" class="hidden">
+            <div id="overlay-content">
+                <h2 id="overlay-title">PAUSED</h2>
+                <p id="overlay-subtitle">Tap anywhere or press 'P' to resume</p>
+                
+                <!-- New Top 5 Leaderboard Display Container -->
+                <div id="leaderboard-container" class="hidden">
+                    <h3>🏆 TOP 5 SCORES 🏆</h3>
+                    <ol id="leaderboard-list"></ol>
+                </div>
+
+                <button id="btn-restart" class="btn hidden">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Top Header Status Bar -->
+        <div id="status-board">
+            <div class="status-item">Score: <span id="score">0</span></div>
+            <div class="status-item">Hi-Score: <span id="high-score">0</span></div>
+            <div class="status-item">Level: <span id="level">1</span></div>
+            <button class="btn-pause-top" id="btn-pause">⏸</button>
+        </div>
+
+        <!-- Meta Panels and Primary Board Grid Content Container -->
+        <div id="main-play-container">
+            <!-- Left Side: Hold Panel -->
+            <div class="side-panel" id="hold-panel">
+                <div class="panel-label">HOLD</div>
+                <div class="canvas-box">
+                    <canvas id="hold-canvas" width="72" height="72"></canvas>
+                </div>
+            </div>
+
+            <!-- Center Stage: Core Game Arena Canvas Area -->
+            <div id="canvas-container">
+                <canvas id="tetris" width="240" height="480"></canvas>
+            </div>
+
+            <!-- Right Side: Next Panel -->
+            <div class="side-panel" id="next-panel">
+                <div class="panel-label">NEXT</div>
+                <div class="canvas-box">
+                    <canvas id="next-canvas" width="72" height="72"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optimized Mobile Controls Grid -->
+        <div id="controls-wrapper">
+            <div class="control-row action-row">
+                <button class="btn btn-hold" id="btn-hold-touch">HOLD ⇄</button>
+                <button class="btn btn-rotate" id="btn-rot">ROTATE ↻</button>
+                <button class="btn btn-hard-drop" id="btn-hard">HARD DROP ⚡</button>
+            </div>
+            <div class="control-row nav-row">
+                <button class="btn btn-nav btn-wide" id="btn-left">◀</button>
+                <button class="btn btn-nav btn-narrow" id="btn-down">▼</button>
+                <button class="btn btn-nav btn-wide" id="btn-right">▶</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
 </body>
 </html>
